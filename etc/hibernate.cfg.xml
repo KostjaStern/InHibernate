@@ -1,0 +1,41 @@
+<!DOCTYPE hibernate-configuration SYSTEM
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.connection.url">jdbc:Oracle:thin:@127.0.0.1:1521:orcl</property>
+        <property name="hibernate.jdbc.use_get_generated_keys">true</property>
+        
+        
+        <property name="hibernate.connection.username">DVF</property>
+        <property name="hibernate.connection.password">dvf12345</property>
+        
+        
+        <!-- Show and print nice SQL on stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        
+        <!-- put comments inside all generated SQL statements to hint at their origin. For example,
+you can then easily see if a particular SQL statement was generated from an
+explicit query or an on-demand collection initialization.  -->
+        <property name="use_sql_comments">true</property>
+        
+        <!-- List of XML mapping files -->
+        <!--  
+        <mapping resource="com/sternkn/hibernate/entities/Employee.hbm.xml"/>
+        <mapping resource="com/sternkn/inhibernate/entities/im2/xml/BillingDetails.hbm.xml"/>
+        -->
+        
+        <!-- List of packages with package-info.java -->
+        <!-- 
+        <mapping package="com.sternkn.cavempt.types"/>
+         -->
+         
+        <!-- List of annotated classes -->
+        <!-- 
+        <mapping class="com.sternkn.cavempt.entities.User"/>
+         -->
+    </session-factory>
+</hibernate-configuration>

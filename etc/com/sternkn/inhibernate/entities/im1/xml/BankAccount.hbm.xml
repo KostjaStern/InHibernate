@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.sternkn.inhibernate.entities.im1.xml">
+
+   <class name="BankAccount" table="TH_IM1_BANK_ACCOUNT">
+   
+      <id name="id" column="TH_BACC_RECID">
+         <generator class="sequence-identity">
+            <param name="sequence">SEQ_TH_IM1_BANK_ACCOUNT_RECID</param>
+         </generator>
+      </id>
+      
+      <property name="owner" column="TH_BACC_OWNER"/>
+      <property name="account" column="TH_BACC_ACCOUNT"/>
+      <property name="bankName" column="TH_BACC_BANKNAME"/>
+      <property name="swift" column="TH_BACC_SWIFT"/>
+   </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.sternkn.inhibernate.entities.im2.xml">
+ 
+   <class name="BillingDetails" abstract="true">
+   
+      <id name="id" type="long" column="TH_BILL_RECID">
+         <generator class="sequence-identity">
+            <param name="sequence">SEQ_TH_IM2_BILL_RECID</param>
+         </generator>
+      </id>
+      
+      <property name="owner" column="TH_BILL_OWNER"/>
+      
+      <!-- create view THW_IM2_CREDIT_CARD as select * from TH_IM2_CREDIT_CARD; -->
+      <union-subclass name="CreditCard" table="THW_IM2_CREDIT_CARD">
+         <property name="number" column="TH_CRC_NUMBER"/>
+         <property name="expMonth" column="TH_CRC_EXP_MONTH"/>
+         <property name="expYear" column="TH_CRC_EXP_YEAR"/>      
+      </union-subclass>
+      
+      <!-- create view THW_IM2_BANK_ACCOUNT as select * from TH_IM2_BANK_ACCOUNT; -->
+      <union-subclass name="BankAccount" table="THW_IM2_BANK_ACCOUNT">
+         <property name="account" column="TH_BACC_ACCOUNT"/>
+         <property name="bankName" column="TH_BACC_BANKNAME"/>
+         <property name="swift" column="TH_BACC_SWIFT"/>      
+      </union-subclass>
+      
+
+   </class>
+</hibernate-mapping>
